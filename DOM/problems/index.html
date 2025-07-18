@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="script.js"></script>
+    
+</body>
+</html>
+
+
+<h1>DOM Nodes Demo</h1>
+<p>This page demonstrates different types of DOM nodes using JavaScript.</p>
+<ul id="node-list"></ul>
+
+<script>
+// Create and append an element node
+const ul = document.getElementById('node-list');
+
+// 1. Element Node
+const liElement = document.createElement('li');
+liElement.textContent = "1. Element Node: <div> element";
+const divElement = document.createElement('div');
+divElement.textContent = "I'm a DIV element node";
+liElement.appendChild(divElement);
+ul.appendChild(liElement);
+
+// 2. Attribute Node
+const liAttr = document.createElement('li');
+liAttr.textContent = "2. Attribute Node: ";
+const spanAttr = document.createElement('span');
+spanAttr.setAttribute('data-demo', 'attributeNode');
+spanAttr.textContent = "This span has a 'data-demo' attribute";
+liAttr.appendChild(spanAttr);
+ul.appendChild(liAttr);
+
+// 3. Text Node
+const liText = document.createElement('li');
+liText.textContent = "3. Text Node: ";
+const textNode = document.createTextNode("This is a text node");
+liText.appendChild(textNode);
+ul.appendChild(liText);
+
+// 4. Comment Node
+const liComment = document.createElement('li');
+liComment.textContent = "4. Comment Node: ";
+const comment = document.createComment("This is a comment node");
+liComment.appendChild(document.createTextNode("Check the page source for a comment node!"));
+ul.appendChild(liComment);
+document.body.appendChild(comment);
+
+// 5. Document Node
+const liDoc = document.createElement('li');
+liDoc.textContent = "5. Document Node: The entire document is a document node (document)";
+ul.appendChild(liDoc);
+
+// 6. DocumentType Node
+const liDocType = document.createElement('li');
+liDocType.textContent = "6. DocumentType Node: The <!DOCTYPE html> at the top is a document type node";
+ul.appendChild(liDocType);
+
+// 7. DocumentFragment Node
+const liFrag = document.createElement('li');
+liFrag.textContent = "7. DocumentFragment Node: ";
+const frag = document.createDocumentFragment();
+const fragSpan = document.createElement('span');
+fragSpan.textContent = "This span is inside a DocumentFragment";
+frag.appendChild(fragSpan);
+liFrag.appendChild(fragSpan.cloneNode(true));
+ul.appendChild(liFrag);
+
+// 8. ProcessingInstruction Node (not available in HTML DOM, only XML)
+// We'll just mention it
+const liPI = document.createElement('li');
+liPI.textContent = "8. ProcessingInstruction Node: Used in XML documents, not in HTML DOM";
+ul.appendChild(liPI);
+
+// 9. CDATA Section Node (only in XML)
+// We'll just mention it
+const liCDATA = document.createElement('li');
+liCDATA.textContent = "9. CDATA Section Node: Used in XML documents, not in HTML DOM";
+ul.appendChild(liCDATA);
+</script>
