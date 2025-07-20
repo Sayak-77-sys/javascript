@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .container {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .dark {
+      background-color: #121212;
+      color: #f0f0f0;
+    }
+
+    .light {
+      background-color: #f0f0f0;
+      color: #121212;
+    }
+
+    .toggle-btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: #6200ee;
+      color: white;
+    }
+  </style>
+</head>
+<body class="light">
+  <div class="container">
+    <button class="toggle-btn" onclick="toggleTheme()">Toggle Theme</button>
+  </div>
+
+  <script src="script1.js"></script>
+</body>
+</html>
