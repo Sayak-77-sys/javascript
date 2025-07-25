@@ -1,0 +1,108 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body and overall container */
+body {
+    background: #121212;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #e0e0e0;
+}
+
+/* Main container */
+.container {
+    background: #1e1e1e;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 500px;
+}
+
+/* Heading */
+.container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-transform: capitalize;
+}
+
+/* Input and button area */
+.input-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#todo-input {
+    flex: 1;
+    padding: 10px 15px;
+    background-color: #2b2b2b;
+    border: 1px solid #444;
+    border-radius: 6px;
+    font-size: 16px;
+    color: #fff;
+}
+
+#todo-input::placeholder {
+    color: #aaa;
+}
+
+#add-tsk-btn {
+    padding: 10px 20px;
+    background-color: #0d6efd;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#add-tsk-btn:hover {
+    background-color: #0a58ca;
+}
+
+/* Task list styles */
+#todo-list {
+    list-style: none;
+}
+
+#todo-list li {
+    background-color: #2a2a2a;
+    padding: 12px 15px;
+    border: 1px solid #444;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #f0f0f0;
+    transition: background 0.3s;
+}
+
+#todo-list li:hover {
+    background-color: #333333;
+}
+
+.delete-btn {
+    padding: 6px 12px;
+    background-color: #d63384;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.delete-btn:hover {
+    background-color: #a61e59;
+}
