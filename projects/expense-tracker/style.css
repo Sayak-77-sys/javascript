@@ -1,0 +1,148 @@
+/* Reset some default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Body and background */
+body {
+  background: linear-gradient(to right, #74ebd5, #acb6e5);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Container */
+.container {
+  background-color: #ffffffcc;
+  padding: 30px 40px;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  width: 100%;
+  max-width: 500px;
+}
+
+/* Headings */
+.container h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.container h2 {
+  margin-top: 30px;
+  color: #444;
+  font-size: 1.3rem;
+}
+
+/* Form styling */
+#expense-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#expense-form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+#expense-form button {
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#expense-form button:hover {
+  background-color: #45a049;
+}
+
+/* Expense list */
+#expense-list {
+  list-style-type: none;
+  margin-top: 15px;
+  padding-left: 0;
+}
+
+#expense-list li {
+  background-color: #f0f0f0;
+  padding: 10px 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Total */
+#total {
+  margin-top: 20px;
+  text-align: right;
+  font-size: 18px;
+  font-weight: bold;
+  color: #222;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .container {
+    padding: 20px;
+  }
+}
+
+/* Filter section styling */
+.filter-section {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.filter-section input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  flex: 1;
+  min-width: 200px;
+}
+
+.filter-section button {
+  padding: 10px 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Filter Button */
+#filter-expenses {
+  background-color: #007bff;
+  color: white;
+}
+
+#filter-expenses:hover {
+  background-color: #0056b3;
+}
+
+/* Clear Button */
+#clear-expenses {
+  background-color: #dc3545;
+  color: white;
+}
+
+#clear-expenses:hover {
+  background-color: #b02a37;
+}
