@@ -22,16 +22,25 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    const newExpense = {
-      id: Date.now(),
-      name: expenseName,
-      amount: expenseAmount,
-    };
+    const existingIndex = expenses.findIndex(
+      (e) => e.name === expenseName && e.amount === expenseAmount
+    );
 
-    expenses.push(newExpense);
+    if (existingIndex !== -1) {
+      expenses[existingIndex].count += 1;
+    } else {
+      const newExpense = {
+        id: Date.now(),
+        name: expenseName,
+        amount: expenseAmount,
+        count: 1,
+      };
+      expenses.push(newExpense);
+    }
+
     saveExpenses();
-    renderExpenses(); // re-render entire list
-    expenseForm.reset(); // Clear inputs
+    renderExpenses();
+    expenseForm.reset();
   });
 
   // Render all expenses
@@ -39,14 +48,26 @@ document.addEventListener("DOMContentLoaded", () => {
     expenseList.innerHTML = "";
     filteredList.forEach((expense) => {
       const li = document.createElement("li");
-      li.textContent = `${expense.name}: $${expense.amount.toFixed(2)}`;
+
+      const label =
+        expense.count > 1
+          ? `${expense.name} (x${expense.count}): $${(
+              expense.amount * expense.count
+            ).toFixed(2)}`
+          : `${expense.name}: $${expense.amount.toFixed(2)}`;
+
+      li.textContent = label;
 
       const deleteBtn = document.createElement("button");
+      deleteBtn.classList.add("delete-btn");
       deleteBtn.textContent = "Delete";
-      deleteBtn.className = "delete-btn";
 
       deleteBtn.addEventListener("click", () => {
-        expenses = expenses.filter((e) => e.id !== expense.id);
+        if (expense.count > 1) {
+          expense.count -= 1;
+        } else {
+          expenses = expenses.filter((e) => e.id !== expense.id);
+        }
         saveExpenses();
         renderExpenses();
       });
@@ -73,7 +94,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Total amount
   function calculateTotal() {
-    return expenses.reduce((total, expense) => total + expense.amount, 0);
+    return expenses.reduce(
+      (total, expense) => total + expense.amount * expense.count,
+      0
+    );
   }
 
   function updateTotalAmount() {
